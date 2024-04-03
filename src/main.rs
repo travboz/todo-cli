@@ -84,9 +84,23 @@ impl Todo {
         self.map.insert(key, true);
     }
 
-    fn show(&self) {
+    fn format_print(&self) -> Vec<(String, String)> {
+        let mut pretty = Vec::new();
         for (key, value) in self.map.iter() {
-            println!("Task: {}\tProgress: {}", key, value);
+            if *value == true {
+                pretty.push((key.clone(), String::from("incomplete")));
+            } else {
+                pretty.push((key.clone(), String::from("completed")));
+            }
+        }
+
+        return pretty;
+    }
+
+    fn show(&self) {
+        let formatted = self.format_print();
+        for (task, progress) in formatted {
+            println!("Task: {:<20} Progress: {}", task, progress);
         }
     }
 
