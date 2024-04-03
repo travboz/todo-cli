@@ -106,6 +106,7 @@ impl Todo {
         let f = std::fs::OpenOptions::new()
             .write(true)
             .create(true)
+            .truncate(true) // add this flag
             .open("db.json")?;
         // write to file with serde
         serde_json::to_writer_pretty(f, &self.map)?;
