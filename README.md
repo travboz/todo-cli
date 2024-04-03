@@ -5,6 +5,8 @@
 - mark tasks as completed
 - show tasks
 
+##### Todo items are kept in `db.json`
+
 ## Installation:
 To run the app, you can use Cargo: 
 ```bash
